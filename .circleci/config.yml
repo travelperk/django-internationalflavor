@@ -13,10 +13,10 @@ workflows:
           context: [aws, codeartifact]
           requires:
             - test
-          # filters:
-          #   branches:
-          #     only:
-          #       - main
+          filters:
+            branches:
+              only:
+                - main
 
 jobs:
   test:
