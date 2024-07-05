@@ -1,4 +1,4 @@
-invoke==1.4.1
+invoke==2.2.0
 coverage==5.1
 flake8==3.7.9
 django-discover-runner==1.0
