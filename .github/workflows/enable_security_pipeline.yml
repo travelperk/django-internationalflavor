@@ -1,0 +1,12 @@
+name: Enable security pipeline
+on:
+  create
+
+jobs:
+  call-enable-security-pipeline:
+    uses: travelperk/security_pipeline/.github/workflows/enable_security_pipeline.yml@main
+    secrets:
+      SECURITY_PIPELINE_APPLICATION_ID: ${{ secrets.SECURITY_PIPELINE_APPLICATION_ID }}
+      SECURITY_PIPELINE_PEM: ${{ secrets.SECURITY_PIPELINE_PEM }}
+      CLICKTRAVEL_SECURITY_PIPELINE_APPLICATION_ID: ${{ secrets.CLICKTRAVEL_SECURITY_PIPELINE_APPLICATION_ID }}
+      CLICKTRAVEL_SECURITY_PIPELINE_PEM: ${{ secrets.CLICKTRAVEL_SECURITY_PIPELINE_PEM }}

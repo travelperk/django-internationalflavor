@@ -1,0 +1,31 @@
+# Custom Trivy configuration file for TravelPerk.
+
+## Currently does not allow for exclusions based on paths, only by rule ID then by path.
+
+vulnerabilities:
+  # - id: CVE-2022-40897
+  #   paths:
+  #     - "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA"
+  #   statement: Accept the risk
+  #   expired_at: 2023-09-01
+
+misconfigurations:
+  # - id: AVD-DS-0002
+  #   paths:
+  #     - "docs/Dockerfile"
+  #   statement: The image needs root privileges
+  #   expired_at: 2023-09-01
+
+secrets:
+  # - id: aws-secret-access-key
+  #   paths:
+  #     - "foo/bar/aws.secret"
+  #   statement: Fake secret for testing purposes
+  #   expired_at: 2023-09-01
+
+licenses:
+  # - id: GPL-3.0 # License name is used as ID
+  #   paths:
+  #     - "usr/share/gcc/python/libstdcxx/v6/__init__.py"
+  #   statement: We cannot avoid this license
+  #   expired_at: 2023-09-01

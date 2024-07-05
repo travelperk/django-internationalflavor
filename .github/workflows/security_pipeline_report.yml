@@ -1,0 +1,23 @@
+name: Security pipeline Report
+on:
+  pull_request:
+    types: [ closed ]
+  
+jobs:
+  call-security-pipeline:
+    if: ${{ contains(github.repository, 'travelperk') }}
+    uses: travelperk/security_pipeline/.github/workflows/security_pipeline_report.yml@main
+    secrets:
+      DEFECTDOJO_API: ${{ secrets.DEFECTDOJO_API }}
+      SECURITY_PIPELINE_APPLICATION_ID: ${{ secrets.SECURITY_PIPELINE_APPLICATION_ID }}
+      SECURITY_PIPELINE_PEM: ${{ secrets.SECURITY_PIPELINE_PEM }}
+      SECURITY_PIPELINE_SLACK_WEBHOOK: ${{ secrets.SECURITY_PIPELINE_SLACK_WEBHOOK }}
+
+  call-security-pipeline-clicktravel:
+    if: ${{ contains(github.repository, 'travel-cloud') }}
+    uses: travel-cloud/security_pipeline_clicktravel/.github/workflows/security_pipeline_report.yml@main
+    secrets:
+      DEFECTDOJO_API: ${{ secrets.DEFECTDOJO_API }}
+      CLICKTRAVEL_SECURITY_PIPELINE_APPLICATION_ID: ${{ secrets.CLICKTRAVEL_SECURITY_PIPELINE_APPLICATION_ID }}
+      CLICKTRAVEL_SECURITY_PIPELINE_PEM: ${{ secrets.CLICKTRAVEL_SECURITY_PIPELINE_PEM }}
+      SECURITY_PIPELINE_SLACK_WEBHOOK: ${{ secrets.SECURITY_PIPELINE_SLACK_WEBHOOK }}
